@@ -1,7 +1,9 @@
 <template lang="pug">
   div.navigation
     div.navigation__left
-      a(@click="toggleSidebar()")
+      a.navigation__menu(@click="toggleSidebar()")
+        span Menu
+      router-link.clear-link(to='/')
         span 5150
 </template>
 
@@ -33,4 +35,6 @@ export default {
       line-height: 30px
       padding: ($navigationHeight - 30px) / 2
       display: inline-block
+  &__menu
+    cursor: pointer
 </style>
