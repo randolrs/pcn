@@ -80,6 +80,9 @@ export default {
   display: none
 
 @media(max-width: 900px)
+  .content
+    &.sidebarActive
+      margin-left: 0px
   .sidebar__background
     display: block
     background: rgba(0, 0, 0, 0.5)

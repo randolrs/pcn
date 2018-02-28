@@ -43,9 +43,9 @@ export default {
   z-index: 98
   border-right: 1px solid #E0E0E0
   transform: translateX((-1 * $sidebarWidth))
-  transition: transform 0.5s
   &.open
     transform: translateX(0)
+    transition: transform 0.5s
   &__list
     padding: 10px 0px
     list-style: none
@@ -64,5 +64,7 @@ export default {
   .sidebar
     top: 0px
     z-index: 101
+    &__list
+      padding: 0px
 
 </style>
