@@ -8,12 +8,30 @@
 </template>
 
 <script>
+
+import { mapState } from 'vuex'
+
 export default {
   name: 'Navigation',
   methods: {
     toggleSidebar () {
+      if (this.sidebarOpen) {
+        this.$store.commit('UNSELECT_SIDEBAR')
+      } else {
+        this.$store.commit('SELECT_SIDEBAR')
+      }
       this.$store.commit('TOGGLE_SIDEBAR')
     }
+  },
+  computed: {
+    ...mapState({
+      sidebarOpen: (state) => {
+        return state.sidebar_open
+      },
+      sidebarSelected: (state) => {
+        return state.sidebar_selected
+      }
+    })
   }
 }
 </script>

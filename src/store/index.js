@@ -6,7 +6,8 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    sidebar_open: true
+    sidebar_open: false,
+    sidebar_selected: false
   },
   mutations: {
     ...mutations

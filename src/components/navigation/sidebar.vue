@@ -1,5 +1,5 @@
 <template lang="pug">
-  div.sidebar(v-bind:class="{open: sidebarOpen}")
+  div.sidebar(v-bind:class="{open: (sidebarOpen || sidebarSelected)}")
     ul.sidebar__list
       li: a
         span Home
@@ -22,6 +22,9 @@ export default {
     ...mapState({
       sidebarOpen: (state) => {
         return state.sidebar_open
+      },
+      sidebarSelected: (state) => {
+        return state.sidebar_selected
       }
     })
   }
@@ -40,7 +43,7 @@ export default {
   z-index: 98
   border-right: 1px solid #E0E0E0
   transform: translateX((-1 * $sidebarWidth))
-  transition: 0.5s
+  transition: transform 0.5s
   &.open
     transform: translateX(0)
   &__list
@@ -57,4 +60,9 @@ export default {
         transition: 0.2s
         &:hover
           background: #E0E0E0
+@media(max-width: 900px)
+  .sidebar
+    top: 0px
+    z-index: 101
+
 </style>
